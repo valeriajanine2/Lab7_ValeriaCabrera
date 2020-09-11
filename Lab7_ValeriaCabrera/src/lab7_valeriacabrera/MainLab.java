@@ -16,6 +16,8 @@ public class MainLab extends javax.swing.JFrame {
      */
     public MainLab() {
         initComponents();
+        
+        //this.setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
@@ -27,6 +29,44 @@ public class MainLab extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jd_carros = new javax.swing.JDialog();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        tf_placa = new javax.swing.JFormattedTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        sp_suciedad = new javax.swing.JSpinner();
+        jLabel9 = new javax.swing.JLabel();
+        bt_carro = new javax.swing.JButton();
+        sp_puertas = new javax.swing.JSpinner();
+        jLabel4 = new javax.swing.JLabel();
+        jd_cliente = new javax.swing.JDialog();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        bt_Cliente = new javax.swing.JButton();
+        sp_edadC = new javax.swing.JSpinner();
+        tf_nombreC = new javax.swing.JTextField();
+        cb_carC = new javax.swing.JComboBox<>();
+        tf_apellidoC = new javax.swing.JTextField();
+        bt_addCarC = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
+        jd_empleado = new javax.swing.JDialog();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        bt_Empleado = new javax.swing.JButton();
+        sp_edadE = new javax.swing.JSpinner();
+        tf_nombreE = new javax.swing.JTextField();
+        cb_carE = new javax.swing.JComboBox<>();
+        tf_apellidoE = new javax.swing.JTextField();
+        bt_addCarE = new javax.swing.JButton();
+        jLabel21 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jt_empleado1 = new javax.swing.JTable();
@@ -40,15 +80,144 @@ public class MainLab extends javax.swing.JFrame {
         pb_empleado3 = new javax.swing.JProgressBar();
         jScrollPane3 = new javax.swing.JScrollPane();
         jt_empleado3 = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
         bt_addCarro = new javax.swing.JButton();
         bt_addCliente = new javax.swing.JButton();
         bt_addCliente1 = new javax.swing.JButton();
+        bt_simulacion = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+
+        jd_carros.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel5.setText("Agregar Carro");
+        jd_carros.getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel6.setText("Suciedad:");
+        jd_carros.getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
+        jd_carros.getContentPane().add(tf_placa, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 180, -1));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel7.setText("Placa:");
+        jd_carros.getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setText("Tamaño:");
+        jd_carros.getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, -1, -1));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pequeño", "Mediano", "Grande" }));
+        jd_carros.getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 180, -1));
+
+        sp_suciedad.setModel(new javax.swing.SpinnerNumberModel(5, 5, 10, 1));
+        jd_carros.getContentPane().add(sp_suciedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 50, -1));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel9.setText("No. Puertas:");
+        jd_carros.getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+
+        bt_carro.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        bt_carro.setForeground(new java.awt.Color(255, 51, 51));
+        bt_carro.setText("Agregar");
+        bt_carro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_carroMouseClicked(evt);
+            }
+        });
+        jd_carros.getContentPane().add(bt_carro, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, -1, -1));
+
+        sp_puertas.setModel(new javax.swing.SpinnerNumberModel(0, null, 6, 1));
+        jd_carros.getContentPane().add(sp_puertas, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 50, -1));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\bubble-background.jpg")); // NOI18N
+        jd_carros.getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-780, 0, 1250, 570));
+
+        jd_cliente.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel10.setText("Agregar Cliente");
+        jd_cliente.getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel11.setText("Carros:");
+        jd_cliente.getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, -1, -1));
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel12.setText("Nombre:");
+        jd_cliente.getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel13.setText("Apellido:");
+        jd_cliente.getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel14.setText("Edad:");
+        jd_cliente.getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
+
+        bt_Cliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        bt_Cliente.setForeground(new java.awt.Color(255, 51, 51));
+        bt_Cliente.setText("Agregar");
+        jd_cliente.getContentPane().add(bt_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, -1, -1));
+
+        sp_edadC.setModel(new javax.swing.SpinnerNumberModel(0, null, 6, 1));
+        jd_cliente.getContentPane().add(sp_edadC, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 50, -1));
+        jd_cliente.getContentPane().add(tf_nombreC, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 190, -1));
+
+        jd_cliente.getContentPane().add(cb_carC, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 190, -1));
+        jd_cliente.getContentPane().add(tf_apellidoC, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 190, -1));
+
+        bt_addCarC.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\1486485588-add-create-new-math-sign-cross-plus_81186.png")); // NOI18N
+        jd_cliente.getContentPane().add(bt_addCarC, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, 50, 50));
+
+        jLabel15.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\bubble-background.jpg")); // NOI18N
+        jd_cliente.getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(-780, 0, 1250, 570));
+
+        jd_empleado.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel16.setText("Agregar Empleado");
+        jd_empleado.getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, -1, -1));
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel17.setText("Carros:");
+        jd_empleado.getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, -1, -1));
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel18.setText("Nombre:");
+        jd_empleado.getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
+
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel19.setText("Apellido:");
+        jd_empleado.getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, -1, -1));
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel20.setText("Edad:");
+        jd_empleado.getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
+
+        bt_Empleado.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        bt_Empleado.setForeground(new java.awt.Color(255, 51, 51));
+        bt_Empleado.setText("Agregar");
+        jd_empleado.getContentPane().add(bt_Empleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, -1, -1));
+
+        sp_edadE.setModel(new javax.swing.SpinnerNumberModel(0, null, 6, 1));
+        jd_empleado.getContentPane().add(sp_edadE, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 50, -1));
+        jd_empleado.getContentPane().add(tf_nombreE, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 190, -1));
+
+        jd_empleado.getContentPane().add(cb_carE, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, 190, -1));
+        jd_empleado.getContentPane().add(tf_apellidoE, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 190, -1));
+
+        bt_addCarE.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\1486485588-add-create-new-math-sign-cross-plus_81186.png")); // NOI18N
+        jd_empleado.getContentPane().add(bt_addCarE, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, 50, 50));
+
+        jLabel21.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\bubble-background.jpg")); // NOI18N
+        jd_empleado.getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(-780, 0, 1250, 570));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setText("Try-CarWash");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, -1));
 
         jt_empleado1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -60,6 +229,14 @@ public class MainLab extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jt_empleado1);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 342, 239));
+
+        getContentPane().add(cb_empleado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 188, -1));
+        getContentPane().add(pb_empleado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, 220, -1));
+
+        getContentPane().add(cb_empleado2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 188, -1));
+        getContentPane().add(pb_empleado2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 219, -1));
+
         jt_empleado2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -69,6 +246,11 @@ public class MainLab extends javax.swing.JFrame {
             }
         ));
         jScrollPane2.setViewportView(jt_empleado2);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 370, 340, 239));
+
+        getContentPane().add(cb_empleado3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 310, 188, -1));
+        getContentPane().add(pb_empleado3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 340, 220, -1));
 
         jt_empleado3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -80,96 +262,84 @@ public class MainLab extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(jt_empleado3);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setText("Agregar");
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 370, 340, 239));
 
+        bt_addCarro.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        bt_addCarro.setForeground(new java.awt.Color(255, 51, 51));
         bt_addCarro.setText("Agregar Carro");
+        bt_addCarro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_addCarroMouseClicked(evt);
+            }
+        });
+        getContentPane().add(bt_addCarro, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 100, 150, 40));
 
+        bt_addCliente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        bt_addCliente.setForeground(new java.awt.Color(255, 51, 51));
         bt_addCliente.setText("Agregar Cliente");
+        bt_addCliente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_addClienteMouseClicked(evt);
+            }
+        });
+        getContentPane().add(bt_addCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 100, 150, 40));
 
+        bt_addCliente1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        bt_addCliente1.setForeground(new java.awt.Color(255, 51, 51));
         bt_addCliente1.setText("Agregar Empleado");
+        bt_addCliente1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_addCliente1MouseClicked(evt);
+            }
+        });
+        getContentPane().add(bt_addCliente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 100, -1, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(86, 86, 86)
-                        .addComponent(jLabel2)
-                        .addGap(131, 131, 131))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(bt_addCarro, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(bt_addCliente1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(bt_addCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(109, 109, 109)))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cb_empleado1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pb_empleado1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(cb_empleado2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pb_empleado2, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(96, 96, 96))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(cb_empleado3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pb_empleado3, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(308, 308, 308))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(cb_empleado2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(pb_empleado2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(17, 17, 17)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cb_empleado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGap(28, 28, 28)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pb_empleado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bt_addCarro))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addComponent(bt_addCliente)
-                                .addGap(33, 33, 33)
-                                .addComponent(bt_addCliente1)))))
-                .addGap(18, 18, 18)
-                .addComponent(cb_empleado3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(pb_empleado3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
-        );
+        bt_simulacion.setText("Iniciar Simulación");
+        bt_simulacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_simulacionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bt_simulacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 660, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\ic_local_car_wash_128_28465.png")); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\bubble-background.jpg")); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 750));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bt_simulacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_simulacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_simulacionActionPerformed
+
+    private void bt_addCarroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_addCarroMouseClicked
+        // TODO add your handling code here:
+        jd_carros.setModal(true); //no poder tocar a principal
+        jd_carros.pack();//tamaño se acople a los controles preestablecidos
+        jd_carros.setVisible(true);
+        
+    }//GEN-LAST:event_bt_addCarroMouseClicked
+
+    private void bt_addClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_addClienteMouseClicked
+        // TODO add your handling code here:
+        jd_cliente.setModal(true); //no poder tocar a principal
+        jd_cliente.pack();//tamaño se acople a los controles preestablecidos
+        jd_cliente.setVisible(true);
+    }//GEN-LAST:event_bt_addClienteMouseClicked
+
+    private void bt_addCliente1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_addCliente1MouseClicked
+        // TODO add your handling code here:
+        jd_empleado.setModal(true); //no poder tocar a principal
+        jd_empleado.pack();//tamaño se acople a los controles preestablecidos
+        jd_empleado.setVisible(true);
+    }//GEN-LAST:event_bt_addCliente1MouseClicked
+
+    private void bt_carroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_carroMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bt_carroMouseClicked
 
     /**
      * @param args the command line arguments
@@ -182,7 +352,7 @@ public class MainLab extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -207,22 +377,62 @@ public class MainLab extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bt_Cliente;
+    private javax.swing.JButton bt_Empleado;
+    private javax.swing.JButton bt_addCarC;
+    private javax.swing.JButton bt_addCarE;
     private javax.swing.JButton bt_addCarro;
     private javax.swing.JButton bt_addCliente;
     private javax.swing.JButton bt_addCliente1;
+    private javax.swing.JButton bt_carro;
+    private javax.swing.JButton bt_simulacion;
+    private javax.swing.JComboBox<String> cb_carC;
+    private javax.swing.JComboBox<String> cb_carE;
     private javax.swing.JComboBox<String> cb_empleado1;
     private javax.swing.JComboBox<String> cb_empleado2;
     private javax.swing.JComboBox<String> cb_empleado3;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JDialog jd_carros;
+    private javax.swing.JDialog jd_cliente;
+    private javax.swing.JDialog jd_empleado;
     private javax.swing.JTable jt_empleado1;
     private javax.swing.JTable jt_empleado2;
     private javax.swing.JTable jt_empleado3;
     private javax.swing.JProgressBar pb_empleado1;
     private javax.swing.JProgressBar pb_empleado2;
     private javax.swing.JProgressBar pb_empleado3;
+    private javax.swing.JSpinner sp_edadC;
+    private javax.swing.JSpinner sp_edadE;
+    private javax.swing.JSpinner sp_puertas;
+    private javax.swing.JSpinner sp_suciedad;
+    private javax.swing.JTextField tf_apellidoC;
+    private javax.swing.JTextField tf_apellidoE;
+    private javax.swing.JTextField tf_nombreC;
+    private javax.swing.JTextField tf_nombreE;
+    private javax.swing.JFormattedTextField tf_placa;
     // End of variables declaration//GEN-END:variables
 }

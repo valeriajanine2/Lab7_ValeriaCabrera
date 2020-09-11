@@ -64,7 +64,7 @@ public class Carros implements Serializable {
 
     @Override
     public String toString() {
-        return "Carros{" + "placa=" + placa + ", tam=" + tam + ", puertas=" + puertas + ", sucio=" + sucio + '}';
+        return Integer.toString(placa);
     }
     
     

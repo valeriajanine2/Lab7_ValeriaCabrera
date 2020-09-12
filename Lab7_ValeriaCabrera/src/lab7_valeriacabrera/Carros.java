@@ -15,7 +15,7 @@ public class Carros implements Serializable {
     
     private static final long SerialVersionUID=777L; //version
     
-    private int placa;
+    private String placa;
     private String tam;
     private int puertas;
     private int sucio;
@@ -23,18 +23,18 @@ public class Carros implements Serializable {
     public Carros() {
     }
 
-    public Carros(int placa, String tam, int puertas, int sucio) {
+    public Carros(String placa, String tam, int puertas, int sucio) {
         this.placa = placa;
         this.tam = tam;
         this.puertas = puertas;
         this.sucio = sucio;
     }
 
-    public int getPlaca() {
+    public String getPlaca() {
         return placa;
     }
 
-    public void setPlaca(int placa) {
+    public void setPlaca(String placa) {
         this.placa = placa;
     }
 
@@ -64,7 +64,7 @@ public class Carros implements Serializable {
 
     @Override
     public String toString() {
-        return Integer.toString(placa);
+        return placa;
     }
     
     

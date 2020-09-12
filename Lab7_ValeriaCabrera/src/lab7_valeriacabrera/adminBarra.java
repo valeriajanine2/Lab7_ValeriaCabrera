@@ -14,22 +14,21 @@ import javax.swing.JProgressBar;
 public class adminBarra extends Thread{
     
     private JProgressBar barra;
-    private double limite;
+    private int limite;
     private boolean avanzar;
     private boolean vive;
     
-    public adminBarra(JProgressBar barra, double limite) {
+    public adminBarra(JProgressBar barra) {
         this.barra = barra;
         avanzar=true;
         vive=true;
-        this.limite=limite;
     }
 
-    public double getLimite() {
+    public int getLimite() {
         return limite;
     }
 
-    public void setLimite(double limite) {
+    public void setLimite(int limite) {
         this.limite = limite;
     }
 
@@ -72,7 +71,7 @@ public class adminBarra extends Thread{
             } //FIN IF
             
             try {
-                Thread.sleep(0);//poner el descanso para que revise que haya algun cambio en los mutadores
+                Thread.sleep(20);//poner el descanso para que revise que haya algun cambio en los mutadores
             } catch (InterruptedException ex) {
             }
         }

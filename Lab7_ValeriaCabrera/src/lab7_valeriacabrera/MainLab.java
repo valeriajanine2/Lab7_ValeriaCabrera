@@ -5,9 +5,13 @@
  */
 package lab7_valeriacabrera;
 
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,7 +25,84 @@ public class MainLab extends javax.swing.JFrame {
     public MainLab() {
         initComponents();
         
-        //this.setExtendedState(MAXIMIZED_BOTH);
+        //agregar elementos del archivo binario de clientes, carros y empleados
+        DefaultComboBoxModel cm = (DefaultComboBoxModel) cb_carC.getModel();
+        DefaultComboBoxModel cm2 = (DefaultComboBoxModel) cb_carE.getModel();
+        
+        adminCarro ac = new adminCarro("./Carros.car");
+        ac.cargarArchivo();
+        
+        for (int i = 0; i < ac.getListaCarro().size(); i++) {
+            Carros c = ac.getListaCarro().get(i);
+            cm.addElement(c);
+        }
+        
+        cb_carC.setModel(cm);
+        
+        adminCliente aC = new adminCliente("./Clientes.cli");
+        aC.cargarArchivo();
+        
+        for (int i = 0; i < aC.getListaCliente().size(); i++) {
+            for (int j = 0; j < aC.getListaCliente().get(i).getCarros().size(); j++) {
+                Carros car = aC.getListaCliente().get(i).getCarros().get(j);
+                cm2.addElement(car);
+            }
+            
+        }
+        
+        cb_carE.setModel(cm2);
+        
+        //comboboxes de empleados
+        DefaultComboBoxModel c1 = (DefaultComboBoxModel) cb_empleado1.getModel();
+        DefaultComboBoxModel c2 = (DefaultComboBoxModel) cb_empleado2.getModel();
+        DefaultComboBoxModel c3 = (DefaultComboBoxModel) cb_empleado3.getModel();
+        
+        adminEmpleado ae = new adminEmpleado("./Empleados.emp");
+        
+        ae.cargarArchivo();
+        
+        for (int i = 0; i < ae.getListaEmpleado().size(); i++) {
+            Empleado emp = ae.getListaEmpleado().get(i);
+            c1.addElement(emp);
+            c2.addElement(emp);
+            c3.addElement(emp);
+        }
+        
+        cb_empleado1.setModel(c1);
+        cb_empleado2.setModel(c2);
+        cb_empleado3.setModel(c3);
+        
+        //agregar elementos de la tabla
+        
+        DefaultTableModel mod = (DefaultTableModel) jt_empleado1.getModel();
+        binarioTabla bt = new binarioTabla("./Tabla1.jt");
+        bt.cargarArchivo();
+        for (int i = 0; i < bt.getObj().size(); i++) {
+            ObjetoTabla t = bt.getObj().get(i);
+            Object[]newrow = {t.getPlaca(),t.getTam(),t.getSucio(),t.getLimite()};
+            mod.addRow(newrow);
+        }
+        jt_empleado1.setModel(mod);
+        
+        DefaultTableModel mod2 = (DefaultTableModel) jt_empleado2.getModel();
+        binarioTabla bt2 = new binarioTabla("./Tabla2.jt");
+        bt2.cargarArchivo();
+        for (int i = 0; i < bt2.getObj().size(); i++) {
+            ObjetoTabla t = bt2.getObj().get(i);
+            Object[]newrow = {t.getPlaca(),t.getTam(),t.getSucio(),t.getLimite()};
+            mod2.addRow(newrow);
+        }
+        jt_empleado2.setModel(mod2);
+        
+        DefaultTableModel mod3 = (DefaultTableModel) jt_empleado3.getModel();
+        binarioTabla bt3 = new binarioTabla("./Tabla3.jt");
+        bt3.cargarArchivo();
+        for (int i = 0; i < bt3.getObj().size(); i++) {
+            ObjetoTabla t = bt3.getObj().get(i);
+            Object[]newrow = {t.getPlaca(),t.getTam(),t.getSucio(),t.getLimite()};
+            mod3.addRow(newrow);
+        }
+        jt_empleado3.setModel(mod3);
     }
 
     /**
@@ -79,9 +160,9 @@ public class MainLab extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jt_empleado1 = new javax.swing.JTable();
         cb_empleado1 = new javax.swing.JComboBox<>();
-        pb_empleado1 = new javax.swing.JProgressBar();
-        cb_empleado2 = new javax.swing.JComboBox<>();
         pb_empleado2 = new javax.swing.JProgressBar();
+        cb_empleado2 = new javax.swing.JComboBox<>();
+        pb_empleado1 = new javax.swing.JProgressBar();
         jScrollPane2 = new javax.swing.JScrollPane();
         jt_empleado2 = new javax.swing.JTable();
         cb_empleado3 = new javax.swing.JComboBox<>();
@@ -172,7 +253,7 @@ public class MainLab extends javax.swing.JFrame {
         });
         jd_cliente.getContentPane().add(bt_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 520, -1, -1));
 
-        sp_edadC.setModel(new javax.swing.SpinnerNumberModel(0, null, 6, 1));
+        sp_edadC.setModel(new javax.swing.SpinnerNumberModel(0, 0, 115, 1));
         jd_cliente.getContentPane().add(sp_edadC, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 50, -1));
         jd_cliente.getContentPane().add(tf_nombreC, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 190, -1));
 
@@ -227,7 +308,7 @@ public class MainLab extends javax.swing.JFrame {
         });
         jd_empleado.getContentPane().add(bt_Empleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 510, -1, -1));
 
-        sp_edadE.setModel(new javax.swing.SpinnerNumberModel(0, null, 6, 1));
+        sp_edadE.setModel(new javax.swing.SpinnerNumberModel(0, 0, 115, 1));
         jd_empleado.getContentPane().add(sp_edadE, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 50, -1));
         jd_empleado.getContentPane().add(tf_nombreE, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 190, -1));
 
@@ -270,10 +351,10 @@ public class MainLab extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 342, 239));
 
         getContentPane().add(cb_empleado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 188, -1));
-        getContentPane().add(pb_empleado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, 220, -1));
+        getContentPane().add(pb_empleado2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, 220, -1));
 
         getContentPane().add(cb_empleado2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 310, 188, -1));
-        getContentPane().add(pb_empleado2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 219, -1));
+        getContentPane().add(pb_empleado1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 219, -1));
 
         jt_empleado2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -333,6 +414,11 @@ public class MainLab extends javax.swing.JFrame {
         getContentPane().add(bt_addCliente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 100, -1, 40));
 
         bt_simulacion.setText("Iniciar Simulación");
+        bt_simulacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_simulacionMouseClicked(evt);
+            }
+        });
         bt_simulacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt_simulacionActionPerformed(evt);
@@ -405,43 +491,52 @@ public class MainLab extends javax.swing.JFrame {
     private void bt_ClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_ClienteMouseClicked
         
         DefaultComboBoxModel model = (DefaultComboBoxModel) cb_carE.getModel();
+        DefaultListModel m = (DefaultListModel) jl_carC.getModel();
         
         Cliente cli = new Cliente(tf_nombreC.getText(),tf_apellidoC.getText(),Integer.parseInt(sp_edadC.getValue().toString()));
         
         //agregar todos los elementos de la lista al arraylist
-        for (int i = 0; i < jl_carC.getComponentCount(); i++) {
-            Object a = jl_carC.getComponent(i);
-            Carros ca = (Carros)a;
-            cli.getCarros().add(ca);
+        for (int i = 0; i < cars.size(); i++) {
+            m.addElement(cars.get(i));
+            cli.getCarros().add(cars.get(i));
             
             //agregar al combo box de empleados
-            model.addElement(ca);
+            model.addElement(cars.get(i));
         }
         
-        cb_carE.setModel(model);
-        System.out.println(cli.getCarros());
-        
-        
-        //agregar al binario
-        adminCliente aC = new adminCliente("./Clientes.cli");
-        aC.cargarArchivo();
-        aC.setCliente(cli);
-        aC.escribirArchivo();
-        
-        //resetar valores y cerrar dialog
-        tf_nombreC.setText("");
-        tf_apellidoC.setText("");
-        sp_edadC.setValue(20);
-        jd_cliente.setVisible(false);
-        
-        
+        if(jl_carE.getComponentCount()==0 || jl_carE.getComponentCount()>5){
+            JOptionPane.showMessageDialog(jd_cliente, "Debe tener al menos 1 carro o maximo 5 a su nombre ");
+        }//que tenga mas de uno pero menos de 5
+        else {
+            cb_carE.setModel(model);
+            jl_carC.setModel(m);
+
+            //agregar al binario
+            adminCliente aC = new adminCliente("./Clientes.cli");
+            aC.cargarArchivo();
+            aC.setCliente(cli);
+            aC.escribirArchivo();
+
+            //resetar valores y cerrar dialog
+            tf_nombreC.setText("");
+            tf_apellidoC.setText("");
+            sp_edadC.setValue(20);
+            jl_carC.removeAll();
+            jd_cliente.setVisible(false);
+
+        }
     }//GEN-LAST:event_bt_ClienteMouseClicked
 
     private void bt_addCarCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_addCarCMouseClicked
         
         DefaultListModel mod = (DefaultListModel) jl_carC.getModel();
+        DefaultComboBoxModel cm = (DefaultComboBoxModel) cb_carC.getModel();
         
-        mod.addElement((Carros)cb_carC.getSelectedItem());
+        Carros c = (Carros)cb_carC.getSelectedItem();
+        mod.addElement(c);
+        cars.add(c);
+        cm.removeElement(c);
+        cb_carC.setModel(cm);
         jl_carC.setModel(mod);
         
         
@@ -449,38 +544,203 @@ public class MainLab extends javax.swing.JFrame {
 
     private void bt_addCarEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_addCarEMouseClicked
         DefaultListModel mod = (DefaultListModel) jl_carE.getModel();
-        
-        mod.addElement((Carros)cb_carE.getSelectedItem());
+        DefaultComboBoxModel cm = (DefaultComboBoxModel) cb_carE.getModel();
+        Carros c = (Carros)cb_carE.getSelectedItem();
+        mod.addElement(c);
+        carsE.add(c);
+        cm.removeElement(c);
+        cb_carE.setModel(cm);
         jl_carE.setModel(mod);
     }//GEN-LAST:event_bt_addCarEMouseClicked
 
     private void bt_EmpleadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_EmpleadoMouseClicked
         // TODO add your handling code here:
         
+        DefaultListModel m = (DefaultListModel) jl_carE.getModel();
+        
+        
         Empleado em = new Empleado(tf_nombreE.getText(),tf_apellidoE.getText(),Integer.parseInt(sp_edadE.getValue().toString()));
         
         //agregar todos los elementos de la lista al arraylist
-        for (int i = 0; i < jl_carE.getComponentCount(); i++) {
-            Object a = jl_carE.getComponent(i);
-            Carros ca = (Carros)a;
-            em.getCarros().add(ca);
+        for (int i = 0; i < carsE.size(); i++) {
+            m.addElement(carsE.get(i));
+            em.getCarros().add(carsE.get(i));
+            
         }
         
-        System.out.println(em.getCarros());
-        
-        
-        //agregar al binario
-        adminEmpleado aC = new adminEmpleado("./Empleados.cli");
-        aC.cargarArchivo();
-        aC.setEmpleado(em);
-        aC.escribirArchivo();
-        
-        //resetar valores y cerrar dialog
-        tf_nombreC.setText("");
-        tf_apellidoC.setText("");
-        sp_edadC.setValue(20);
-        jd_cliente.setVisible(false);
+        if(jl_carE.getComponentCount()==0 || jl_carE.getComponentCount()>5){
+            JOptionPane.showMessageDialog(jd_empleado, "Debe tener al menos 1 carro o maximo 5 carros a limpiar ");
+        }//que tenga mas de uno pero menos de 5
+        else {
+            //agregar al binario
+            adminEmpleado aC = new adminEmpleado("./Empleados.emp");
+            aC.cargarArchivo();
+            aC.setEmpleado(em);
+            aC.escribirArchivo();
+
+            //agregar a las comboboxes del thread
+            DefaultComboBoxModel m1 = (DefaultComboBoxModel) cb_empleado1.getModel();
+            DefaultComboBoxModel m2 = (DefaultComboBoxModel) cb_empleado2.getModel();
+            DefaultComboBoxModel m3 = (DefaultComboBoxModel) cb_empleado3.getModel();
+
+            m1.addElement(em);
+            cb_empleado1.setModel(m1);
+            m2.addElement(em);
+            cb_empleado2.setModel(m2);
+            m3.addElement(em);
+            cb_empleado3.setModel(m3);
+
+            //resetar valores y cerrar dialog
+            tf_nombreE.setText("");
+            tf_apellidoE.setText("");
+            sp_edadE.setValue(20);
+            jd_empleado.setVisible(false);
+        }
     }//GEN-LAST:event_bt_EmpleadoMouseClicked
+
+    private void bt_simulacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_simulacionMouseClicked
+       
+        //booleans para que se pase a la siguiente tabla
+        boolean part2 = false;
+        boolean part3 = false;
+
+        if (cb_empleado1.getSelectedItem().toString().equals(cb_empleado2.getSelectedItem().toString())) {
+            JOptionPane.showMessageDialog(this, "El empleado de la primera tabla no puede ser igual al de la segunda tabla");
+        } else if (cb_empleado2.getSelectedItem().toString().equals(cb_empleado3.getSelectedItem().toString())) {
+            JOptionPane.showMessageDialog(this, "El empleado de la segunda tabla no puede ser igual al de la tercera tabla");
+        } else if (cb_empleado1.getSelectedItem().toString().equals(cb_empleado3.getSelectedItem().toString())) {
+            JOptionPane.showMessageDialog(this, "El empleado de la primera tabla no puede ser igual al de la tercera tabla");
+        }
+        else {
+
+            //empleado 1
+            Empleado em1 = (Empleado) cb_empleado1.getSelectedItem();
+            int max;
+            for (int i = 0; i < em1.getCarros().size(); i++) {
+                //determinar el valor del limite
+                if (em1.getCarros().get(i).getTam().equals("Pequeño")) {
+                    max = (int) (em1.getCarros().get(i).getSucio() * 1.5);
+                } else if (em1.getCarros().get(i).getTam().equals("Mediano")) {
+                    max = (int) (em1.getCarros().get(i).getSucio() * 1.8);
+                } else {
+                    max = (int) (em1.getCarros().get(i).getSucio() * 2.2);
+                }
+
+                //hilo de barra
+                pb_empleado1.setMaximum(max);
+                adminBarra h = new adminBarra(pb_empleado1);
+                Thread proceso1 = new Thread(h);
+                proceso1.start();//para comenzar la tarea
+
+                if (pb_empleado1.getValue() == h.getLimite()) {
+
+                    Carros ca = em1.getCarros().get(i);
+                    DefaultTableModel m = (DefaultTableModel) jt_empleado1.getModel();
+                    Object[] newrow = {ca.getPlaca(), ca.getTam(), ca.getSucio(), max};
+                    //agregar al binario
+                    ObjetoTabla tab1 = new ObjetoTabla(ca.getPlaca(), ca.getTam(), ca.getSucio(), max);
+                    binarioTabla bt1 = new binarioTabla("./Tabla1.jt");
+                    bt1.cargarArchivo();
+                    bt1.setTabla(tab1);
+                    bt1.escribirArchivo();
+                    //agregar a la tabla
+                    m.addRow(newrow);
+                    jt_empleado1.setModel(m);
+
+                }
+
+                pb_empleado1.setValue(0);
+
+            }
+
+            //empleado 2
+            part2 = true;
+
+            if (part2) {
+                Empleado em2 = (Empleado) cb_empleado2.getSelectedItem();
+                int max2;
+                for (int i = 0; i < em2.getCarros().size(); i++) {
+                    //determinar el valor del limite
+                    if (em2.getCarros().get(i).getTam().equals("Pequeño")) {
+                        max2 = (int) (em2.getCarros().get(i).getSucio() * 1.5);
+                    } else if (em2.getCarros().get(i).getTam().equals("Mediano")) {
+                        max2 = (int) (em2.getCarros().get(i).getSucio() * 1.8);
+                    } else {
+                        max2 = (int) (em2.getCarros().get(i).getSucio() * 2.2);
+                    }
+
+                    //hilo de barra
+                    pb_empleado2.setMaximum(max2);
+                    adminBarra h = new adminBarra(pb_empleado2);
+                    Thread proceso1 = new Thread(h);
+                    proceso1.start();//para comenzar la tarea
+
+                    if (pb_empleado2.getValue() == h.getLimite()) {
+
+                        Carros ca = em2.getCarros().get(i);
+                        DefaultTableModel m = (DefaultTableModel) jt_empleado2.getModel();
+                        Object[] newrow = {ca.getPlaca(), ca.getTam(), ca.getSucio(), max2};
+                        //agregar al binario
+                        ObjetoTabla tab2 = new ObjetoTabla(ca.getPlaca(), ca.getTam(), ca.getSucio(), max2);
+                        binarioTabla bt2 = new binarioTabla("./Tabla2.jt");
+                        bt2.cargarArchivo();
+                        bt2.setTabla(tab2);
+                        bt2.escribirArchivo();
+                        //agregar a la tabla
+                        m.addRow(newrow);
+                        jt_empleado2.setModel(m);
+
+                    }
+
+                    pb_empleado2.setValue(0);
+
+                }
+            }
+
+            //empleado 3
+            part3 = true;
+            if (part3) {
+                Empleado em3 = (Empleado) cb_empleado3.getSelectedItem();
+                int max3;
+                for (int i = 0; i < em3.getCarros().size(); i++) {
+                    //determinar el valor del limite
+                    if (em3.getCarros().get(i).getTam().equals("Pequeño")) {
+                        max3 = (int) (em3.getCarros().get(i).getSucio() * 1.5);
+                    } else if (em3.getCarros().get(i).getTam().equals("Mediano")) {
+                        max3 = (int) (em3.getCarros().get(i).getSucio() * 1.8);
+                    } else {
+                        max3 = (int) (em3.getCarros().get(i).getSucio() * 2.2);
+                    }
+
+                    //hilo de barra
+                    pb_empleado3.setMaximum(max3);
+                    adminBarra h = new adminBarra(pb_empleado3);
+                    Thread proceso1 = new Thread(h);
+                    proceso1.start();//para comenzar la tarea
+
+                    if (pb_empleado3.getValue() == h.getLimite()) {
+
+                        Carros ca = em3.getCarros().get(i);
+                        DefaultTableModel m = (DefaultTableModel) jt_empleado3.getModel();
+                        Object[] newrow = {ca.getPlaca(), ca.getTam(), ca.getSucio(), max3};
+                        //agregar al binario
+                        ObjetoTabla tab3 = new ObjetoTabla(ca.getPlaca(), ca.getTam(), ca.getSucio(), max3);
+                        binarioTabla bt3 = new binarioTabla("./Tabla3.jt");
+                        bt3.cargarArchivo();
+                        bt3.setTabla(tab3);
+                        bt3.escribirArchivo();
+                        //agregar a la tabla
+                        m.addRow(newrow);
+                        jt_empleado3.setModel(m);
+                    }
+
+                    pb_empleado3.setValue(0);
+
+                }
+            }
+
+        }
+    }//GEN-LAST:event_bt_simulacionMouseClicked
 
     /**
      * @param args the command line arguments
@@ -580,4 +840,9 @@ public class MainLab extends javax.swing.JFrame {
     private javax.swing.JTextField tf_nombreE;
     private javax.swing.JTextField tf_placa;
     // End of variables declaration//GEN-END:variables
+
+    ArrayList<Carros> cars = new ArrayList();
+    ArrayList<Carros> carsE = new ArrayList();
+    
+
 }
